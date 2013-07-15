@@ -11,11 +11,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="application\Application.cpp" />
+    <ClCompile Include="application\Time.cpp" />
+    <ClCompile Include="game\GameObject.cpp" />
+    <ClCompile Include="game\Mesh.cpp" />
+    <ClCompile Include="game\Model.cpp" />
+    <ClCompile Include="game\Texture.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="renderer\RenderEngine.cpp" />
+    <ClCompile Include="resourcemanagement\ObjLoader.cpp" />
+    <ClCompile Include="resourcemanagement\Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
+    <ClInclude Include="application\Application.h" />
+    <ClInclude Include="application\Time.h" />
+    <ClInclude Include="game\GameObject.h" />
+    <ClInclude Include="game\Mesh.h" />
+    <ClInclude Include="game\Model.h" />
+    <ClInclude Include="game\Texture.h" />
+    <ClInclude Include="renderer\RenderEngine.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resourcemanagement\ObjLoader.h" />
+    <ClInclude Include="resourcemanagement\Resource.h" />
+    <ClInclude Include="resourcemanagement\ResourceManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C1ED5668-0400-43C2-AE66-5BE4164D030D}</ProjectGuid>

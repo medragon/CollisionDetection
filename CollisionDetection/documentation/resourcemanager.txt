@@ -1,0 +1,18 @@
+Collision Detection - ResourceManager
+========================================
+
+
+
+
+
+
+
+
+
+
+
+Bronnen
+========================
+
+
+http://www.gamedev.net/page/resources/_/technical/game-programming/a-simple-fast-resource-manager-using-c-and-stl-r2503
