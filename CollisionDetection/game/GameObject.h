@@ -5,23 +5,18 @@
 #include <memory>
 #include "../libraries/GLM/glm.hpp"
 #include "../libraries/GLM/gtc/quaternion.hpp"
+#include "../application/Object.h"
 
-class GameObject
+class GameObject : public Object
 {
 	private:
-		std::string _name;
-		int _id;
-
-		glm::vec3 _position;
 		glm::vec3 _scale;
-		glm::quat _direction;
 
 		std::vector<std::shared_ptr<GameObject>> _children;
 	public:
-		GameObject(void);
-		~GameObject(void);
+		GameObject();
+		~GameObject();
 
-		void translate(glm::vec3 position);
 		void scale(glm::vec3 scale);
 		void rotate(glm::vec3 axis);
 };

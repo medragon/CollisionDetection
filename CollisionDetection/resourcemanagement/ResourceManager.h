@@ -1,21 +1,3 @@
-/* 
-ResourceManagement.hpp
-
-A template based simple and fast resource manager using STL and a base resource class to be used with the manager.
-
-Copyright (c) 2008 by Ashic Mahtab and Zinat Wali. 
-Permission is granted to use, distribute, or modify this source, provided that this copyright notice remains intact. 
-
-The code is provided "as is" with no guarantees. 
-It has been tested in Microsoft Visual Studio 2008 running under Windows Vista Ultimate x64. 
-
-Feel free to contact us at:
-aheartattack@gmail.com (Ashic)
-zinat.wali@gmail.com (Zinat)
-
-Happy coding :)
-*/
-
 #pragma once
 
 #include <stack>
@@ -31,10 +13,10 @@ class ResourceManager
 		std::stack<unsigned int> _handles;
 		std::vector<T*> *_list;
 
-		void (*createResource)(T **resource, const unsigned int, const std::string &, const std::string &);
+		void (*createResource)(T **resource, const unsigned int, const std::string &);
 
 	public:
-		ResourceManager(void (*createResourceFunction) (T **resource, const unsigned int handle, const std::string& name, const std::string& path) = NULL)
+		ResourceManager(void (*createResourceFunction) (T **resource, const unsigned int handle, const std::string& fileName) = NULL)
 		{
 			_list = new std::vector<T*>;
 			createResource = createResourceFunction;
@@ -46,12 +28,12 @@ class ResourceManager
 			delete _list;
 		}
 
-		unsigned int add(const std::string& name, const std::string& path)
+		unsigned int add(const std::string& fileName)
 		{
-			if (_list == NULL || name.empty() || path.empty())
+			if (_list == NULL || fileName.empty())
 				return -1;
 
-			T *element = getElement(name, path);
+			T *element = getElement(fileName);
 			if ( element != NULL) {
 				element->incRef();
 				return element->getHandle();
@@ -68,9 +50,9 @@ class ResourceManager
 
 			T* resource = NULL;
 			if (createResource != NULL)
-				createResource(&resource, handle, name, path);
+				createResource(&resource, handle, fileName);
 			else
-				resource = new T(handle, name, path);
+				resource = new T(handle, fileName);
 
 			if (handleAvailable)
 				(*_list)[handle] = resource;
@@ -101,15 +83,14 @@ class ResourceManager
 			return NULL;
 		}
 
-		T* getElement(const std::string& name, const std::string& path)
+		T* getElement(const std::string& fileName)
 		{
-			if (name.empty() || path.empty() || _list == NULL || _list->empty())
+			if (fileName.empty() || _list == NULL || _list->empty())
 				return NULL;
 
 			for (std::vector<T*>::iterator i = _list->begin(); i != _list->end(); i++) {
-				if ((*i)->getName() == name)
-					if ((*i)->getPath() == path)
-						return (*i);
+				if ((*i)->getFileName() == fileName)
+					return (*i);
 			}
 
 			return NULL;

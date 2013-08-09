@@ -27,7 +27,7 @@ void Application::createResourceManagers()
 void Application::loadResources()
 {
 	// test adding a object like race car
-	meshManager->add("car.obj", "resources/mesh/");
+	meshManager->add("resources/mesh/car.obj");
 }
 
 void Application::run()

@@ -20,7 +20,7 @@ class Mesh : public Resource
 		std::vector<glm::vec3> normals;
 
 	public:
-		Mesh(const int handle, const std::string& name, const std::string& path);
+		Mesh(const int handle, const std::string& fileName);
 		~Mesh(void);
 };
 

@@ -1,11 +1,11 @@
 #include "GameObject.h"
 
 
-GameObject::GameObject(void)
+GameObject::GameObject() : Object()
 {
 }
 
 
-GameObject::~GameObject(void)
+GameObject::~GameObject()
 {
 }
