@@ -14,6 +14,7 @@
     <ClCompile Include="application\Application.cpp" />
     <ClCompile Include="application\Object.cpp" />
     <ClCompile Include="application\Time.cpp" />
+    <ClCompile Include="game\Camera.cpp" />
     <ClCompile Include="game\GameObject.cpp" />
     <ClCompile Include="game\Mesh.cpp" />
     <ClCompile Include="game\Model.cpp" />
@@ -27,6 +28,7 @@
     <ClInclude Include="application\Application.h" />
     <ClInclude Include="application\Object.h" />
     <ClInclude Include="application\Time.h" />
+    <ClInclude Include="game\Camera.h" />
     <ClInclude Include="game\GameObject.h" />
     <ClInclude Include="game\Mesh.h" />
     <ClInclude Include="game\Model.h" />
